@@ -1,0 +1,102 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.container{
+    background-color: rgb(245, 86, 86);
+    border: 3px rgb(255, 166, 0);
+    padding: 15px;
+    margin: 0;
+    display: grid;
+    gap: 5px;
+    grid-template-areas: 
+    'header'
+    'content1'
+    'footer';
+}
+
+.container div{
+    background-color: rgb(255, 233, 222);
+    padding: 10px;
+    border: 2px solid orange;
+}
+
+#header{
+    grid-area: header;
+    
+}
+
+#titulo{
+    font-family: "Bungee Spice";
+    font-size: 3em;
+    text-align: center;
+}
+
+#subtitulo{
+    font-family: "Barlow";
+    text-align: center;
+    
+    font-style: normal;
+    
+    
+}
+
+#content1{
+    grid-area: content1;
+    font-family: "Barlow", sans-serif;
+    font-style: normal;
+    background-color: rgb(255, 182, 118);
+    background-image: url(imagens/termometro.png), url(imagens/termometro2.png);
+    background-position: bottom left, bottom right;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+
+}
+
+#temperatura-em-celcius{
+    width: 50px;
+    height: 15px;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+
+
+
+#temperatura-em-fahrenheit{
+    width: 50px;
+    height: 15px;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 0 10px
+}
+
+#botao{
+    cursor: pointer;
+    background-color: #dd4e4e;
+    color: white;
+    padding: 5px 10px;
+    border: 1px solid #e04242;
+    border-radius: 5px;
+    font-size: 16px; 
+    line-height: 1.5;
+    font-family: "Barlow", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    margin: 0 10px
+    
+}
+
+#footer{
+    grid-area: footer;
+    font-family: "Barlow", sans-serif;
+    font-style: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

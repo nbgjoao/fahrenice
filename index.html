@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bungee+Spice&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <title>Conversor de Temperatura</title>
+</head>
+<body>
+    <div class="container" id="template-areas">
+        <div id="header">
+            <p id="titulo">FAHRENICE</p>
+            <p id="subtitulo">Conversor de Celsius para Fahrenheit</p>
+        </div>
+        <div id="content1">
+            <label for="temperatura-em-celcius">Temperatura em graus Celsius</label>
+            <input type="number" id="temperatura-em-celcius" name="temperatura-em-celcius" min="0" max="999">
+            <br>
+            <label for="temperatura-em-fahrenheit">Temperatura em Fahrenheit</label>
+            <input type="number" id="temperatura-em-fahrenheit" name="temperatura-em-fahrenheit">
+            <br>
+            <input type="button" id="botao" value="Limpar">    
+        </div>
+        <div id="footer">
+            <p>Copyright ©️ 2024 - Desenvolvido por João Belforte</p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('botao').addEventListener('click', function() {
+                document.getElementById('temperatura-em-celcius').value = '';
+                document.getElementById('temperatura-em-fahrenheit').value = '';
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('temperatura-em-celcius').addEventListener('input', function() {
+                var celsius = parseFloat(document.getElementById('temperatura-em-celcius').value);
+                var fahrenheit = (celsius * 9/5) + 32;
+                document.getElementById('temperatura-em-fahrenheit').value = formatarValor(fahrenheit); 
+            });
+
+            document.getElementById('temperatura-em-fahrenheit').addEventListener('input', function() {
+                var fahrenheit = parseFloat(document.getElementById('temperatura-em-fahrenheit').value);
+                var celsius = (fahrenheit - 32) * 5/9;
+                document.getElementById('temperatura-em-celcius').value = formatarValor(celsius);
+            });
+        });
+
+       
+        function formatarValor(valor) {
+            var valorFormatado = parseFloat(valor.toFixed(10)).toString();
+            return valorFormatado.indexOf('.') !== -1 ? valorFormatado.replace(/0+$/, '').replace(/\.$/, '') : valorFormatado;
+        }
+    </script>
+</body>
+</html>
